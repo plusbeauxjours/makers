@@ -22,7 +22,7 @@ export const meta: MetaFunction = () => {
   return [{ title: "Home | wemake" }, { name: "description", content: "Welcome to wemake" }];
 };
 
-export default function HomePage({ loaderData }: { loaderData: { hello: string } }) {
+export default function HomePage({ loaderData }: Route.ComponentProps) {
   return (
     <div className="px-20 space-y-40">
       <div className="grid grid-cols-3 gap-4">

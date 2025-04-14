@@ -1,7 +1,12 @@
-import type { LoaderFunctionArgs, ActionFunctionArgs, MetaFunction } from "react-router";
+import {
+  type LoaderFunctionArgs,
+  type ActionFunctionArgs,
+  type MetaFunction,
+  redirect,
+} from "react-router";
 
-export function loader({ request }: LoaderFunctionArgs) {
-  return {};
+export function loader() {
+  return redirect("/products/leaderboards");
 }
 
 export function action({ request }: ActionFunctionArgs) {
