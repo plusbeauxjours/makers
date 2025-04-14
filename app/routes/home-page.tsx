@@ -1,10 +1,20 @@
-import { Link, type MetaFunction } from "react-router";
+import { Link } from "react-router";
 import { Button } from "~/common/components/ui/button";
 import { IdeaCard } from "~/features/ideas/components/idea-card";
 import { PostCard } from "~/features/community/components/post-card";
 import { ProductCard } from "~/features/products/components/product-card";
 import { JobCard } from "~/features/jobs/components/job-card";
 import { TeamCard } from "~/features/teams/components/team-card";
+import type { Route } from "./+types/home-page";
+import type { LoaderFunctionArgs, ActionFunctionArgs, MetaFunction } from "react-router";
+
+export function loader({ request }: Route.LoaderArgs) {
+  return {};
+}
+
+export function action({ request }: Route.ActionArgs) {
+  return {};
+}
 
 export const meta: MetaFunction = () => {
   return [{ title: "Home | wemake" }, { name: "description", content: "Welcome to wemake" }];
