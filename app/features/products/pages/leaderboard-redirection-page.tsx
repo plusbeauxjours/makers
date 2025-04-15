@@ -1,5 +1,5 @@
 import { data, redirect } from "react-router";
-import type { Route } from "./+types/leaderboards-redirection-page";
+import type { Route } from "./+types/leaderboard-redirection-page";
 import { DateTime } from "luxon";
 
 export function loader({ params }: Route.LoaderArgs) {
@@ -7,13 +7,13 @@ export function loader({ params }: Route.LoaderArgs) {
   let url: string;
   const today = DateTime.now().setZone("Asia/Seoul");
   if (period === "daily") {
-    url = `/products/leaderboards/daily/${today.year}/${today.month}/${today.day}`;
+    url = `/products/leaderboard/daily/${today.year}/${today.month}/${today.day}`;
   } else if (period === "weekly") {
-    url = `/products/leaderboards/weekly/${today.year}/${today.weekNumber}`;
+    url = `/products/leaderboard/weekly/${today.year}/${today.weekNumber}`;
   } else if (period === "monthly") {
-    url = `/products/leaderboards/monthly/${today.year}/${today.month}`;
+    url = `/products/leaderboard/monthly/${today.year}/${today.month}`;
   } else if (period === "yearly") {
-    url = `/products/leaderboards/yearly/${today.year}`;
+    url = `/products/leaderboard/yearly/${today.year}`;
   } else {
     return data(null, { status: 400 });
   }

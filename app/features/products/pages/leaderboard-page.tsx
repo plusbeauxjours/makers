@@ -2,11 +2,11 @@ import Hero from "~/common/components/hero";
 import { Button } from "~/common/components/ui/button";
 import { ProductCard } from "../components/product-card";
 import { Link } from "react-router";
-import type { Route } from "./+types/leaderboards-page";
+import type { Route } from "./+types/leaderboard-page";
 
 export const meta: Route.MetaFunction = () => {
   return [
-    { title: "Leaderboards | wemake" },
+    { title: "leaderboard | wemake" },
     { name: "description", content: "Top products leaderboard" },
   ];
 };
@@ -14,7 +14,7 @@ export const meta: Route.MetaFunction = () => {
 export default function LeaderboardPage() {
   return (
     <div className="space-y-20">
-      <Hero title="Leaderboards" subtitle="The most popular products on wemake" />
+      <Hero title="leaderboard" subtitle="The most popular products on wemake" />
       <div className="grid grid-cols-3 gap-4">
         <div>
           <h2 className="text-3xl font-bold leading-tight tracking-tight">Daily Leaderboard</h2>
@@ -34,7 +34,7 @@ export default function LeaderboardPage() {
           />
         ))}
         <Button variant="link" asChild className="text-lg self-center">
-          <Link to="/products/leaderboards/daily">Explore all products &rarr;</Link>
+          <Link to="/products/leaderboard/daily">Explore all products &rarr;</Link>
         </Button>
       </div>
       <div className="grid grid-cols-3 gap-4">
@@ -56,7 +56,7 @@ export default function LeaderboardPage() {
           />
         ))}
         <Button variant="link" asChild className="text-lg self-center">
-          <Link to="/products/leaderboards/weekly">Explore all products &rarr;</Link>
+          <Link to="/products/leaderboard/weekly">Explore all products &rarr;</Link>
         </Button>
       </div>
       <div className="grid grid-cols-3 gap-4">
@@ -78,7 +78,7 @@ export default function LeaderboardPage() {
           />
         ))}
         <Button variant="link" asChild className="text-lg self-center">
-          <Link to="/products/leaderboards/monthly">Explore all products &rarr;</Link>
+          <Link to="/products/leaderboard/monthly">Explore all products &rarr;</Link>
         </Button>
       </div>
       <div className="grid grid-cols-3 gap-4">
@@ -100,7 +100,7 @@ export default function LeaderboardPage() {
           />
         ))}
         <Button variant="link" asChild className="text-lg self-center">
-          <Link to="/products/leaderboards/yearly">Explore all products &rarr;</Link>
+          <Link to="/products/leaderboard/yearly">Explore all products &rarr;</Link>
         </Button>
       </div>
     </div>

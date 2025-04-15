@@ -4,13 +4,13 @@ export default [
   index("routes/home-page.tsx"),
   ...prefix("products", [
     index("features/products/pages/products-page.tsx"),
-    ...prefix("leaderboards", [
-      index("features/products/pages/leaderboards-page.tsx"),
-      route("/yearly/:year", "features/products/pages/leaderboards-yearly-page.tsx"),
-      route("/monthly/:year/:month", "features/products/pages/leaderboards-monthly-page.tsx"),
-      route("/weekly/:year/:week", "features/products/pages/leaderboards-weekly-page.tsx"),
-      route("/daily/:year/:month/:day", "features/products/pages/leaderboards-daily-page.tsx"),
-      route("/:period", "features/products/pages/leaderboards-redirection-page.tsx"),
+    ...prefix("leaderboard", [
+      index("features/products/pages/leaderboard-page.tsx"),
+      route("/yearly/:year", "features/products/pages/leaderboard-yearly-page.tsx"),
+      route("/monthly/:year/:month", "features/products/pages/leaderboard-monthly-page.tsx"),
+      route("/weekly/:year/:week", "features/products/pages/leaderboard-weekly-page.tsx"),
+      route("/daily/:year/:month/:day", "features/products/pages/leaderboard-daily-page.tsx"),
+      route("/:period", "features/products/pages/leaderboard-redirection-page.tsx"),
     ]),
     ...prefix("categories", [
       index("features/products/pages/categories-page.tsx"),

@@ -6,7 +6,7 @@ import {
 } from "react-router";
 
 export function loader() {
-  return redirect("/products/leaderboards");
+  return redirect("/products/leaderboard");
 }
 
 export function action({ request }: ActionFunctionArgs) {

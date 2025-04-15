@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 
 import { data, isRouteErrorResponse, Link } from "react-router";
 import { z } from "zod";
-import type { Route } from "./+types/leaderboards-daily-page";
+import type { Route } from "./+types/leaderboard-daily-page";
 import Hero from "~/common/components/hero";
 import { Button } from "~/common/components/ui/button";
 import { ProductCard } from "../components/product-card";
@@ -67,14 +67,14 @@ export default function DailyLeaderboardPage({ loaderData }: Route.ComponentProp
       <div className="flex items-center justify-center gap-2">
         <Button variant="secondary" asChild>
           <Link
-            to={`/products/leaderboards/daily/${previousDay.year}/${previousDay.month}/${previousDay.day}`}>
+            to={`/products/leaderboard/daily/${previousDay.year}/${previousDay.month}/${previousDay.day}`}>
             &larr; {previousDay.toLocaleString(DateTime.DATE_SHORT)}
           </Link>
         </Button>
         {!isToday ? (
           <Button variant="secondary" asChild>
             <Link
-              to={`/products/leaderboards/daily/${nextDay.year}/${nextDay.month}/${nextDay.day}`}>
+              to={`/products/leaderboard/daily/${nextDay.year}/${nextDay.month}/${nextDay.day}`}>
               {nextDay.toLocaleString(DateTime.DATE_SHORT)} &rarr;
             </Link>
           </Button>
