@@ -30,14 +30,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* ㅣinks와 마찬가지로 header에 추가된다. */}
         <Meta />
-        {/* 위의 links array의 items와 같은 형식을 header에 추가시켜준다. */}
         <Links />
       </head>
       <body>
-        {children}
-        {/* 페이지를 이동했다가 이전 페이지로 돌아갈떄 스크롤이 원래 위치에 있도록 */}
+        <main className="px-20">{children}</main>
         <ScrollRestoration />
         <Scripts />
       </body>

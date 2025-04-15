@@ -6,12 +6,10 @@ import { ProductCard } from "~/features/products/components/product-card";
 import { JobCard } from "~/features/jobs/components/job-card";
 import { TeamCard } from "~/features/teams/components/team-card";
 import type { Route } from "./+types/home-page";
-import type { LoaderFunctionArgs, ActionFunctionArgs, MetaFunction } from "react-router";
+import type { MetaFunction } from "react-router";
 
 export function loader({ request }: Route.LoaderArgs) {
-  return {
-    hello: "world",
-  };
+  return;
 }
 
 export function action({ request }: Route.ActionArgs) {
@@ -23,13 +21,13 @@ export const meta: MetaFunction = () => {
 };
 
 export default function HomePage({ loaderData }: Route.ComponentProps) {
+  console.log(loaderData);
+
   return (
     <div className="px-20 space-y-40">
       <div className="grid grid-cols-3 gap-4">
         <div>
-          <h2 className="text-5xl font-bold leading-tight tracking-tight">
-            Today's Products {JSON.stringify(loaderData)}
-          </h2>
+          <h2 className="text-5xl font-bold leading-tight tracking-tight">Today's Products</h2>
           <p className="text-xl font-light text-foreground">
             The best products made by our community today.
           </p>
