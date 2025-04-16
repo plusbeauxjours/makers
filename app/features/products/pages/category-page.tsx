@@ -1,24 +1,34 @@
-import { ChevronRightIcon } from "lucide-react";
-import { Link } from "react-router";
-import { Card, CardDescription, CardHeader, CardTitle } from "~/common/components/ui/card";
+import Hero from "~/common/components/hero";
+import { ProductCard } from "../components/product-card";
+import ProductPagination from "~/common/components/product-pagination";
+import type { Route } from "./+types/category-page";
 
-interface CategoryCardProps {
-  id: string;
-  name: string;
-  description: string;
-}
+export const meta = ({ params }: Route.MetaArgs) => {
+  return [
+    { title: `Developer Tools | ProductHunt Clone` },
+    { name: "description", content: `Browse Developer Tools products` },
+  ];
+};
 
-export function CategoryCard({ id, name, description }: CategoryCardProps) {
+export default function CategoryPage() {
   return (
-    <Link to={`/products/categories/${id}`} className="block">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex">
-            {name} <ChevronRightIcon className="size-6" />
-          </CardTitle>
-          <CardDescription className="text-base">{description}</CardDescription>
-        </CardHeader>
-      </Card>
-    </Link>
+    <div className="space-y-10">
+      <Hero title={"Developer Tools"} subtitle={`Tools for developers to build products faster`} />
+
+      <div className="space-y-5 w-full max-w-screen-md mx-auto">
+        {Array.from({ length: 11 }).map((_, index) => (
+          <ProductCard
+            key={`productId-${index}`}
+            id={`productId-${index}`}
+            name="Product Name"
+            description="Product Description"
+            commentsCount={12}
+            viewsCount={12}
+            votesCount={120}
+          />
+        ))}
+      </div>
+      <ProductPagination totalPages={10} />
+    </div>
   );
 }
