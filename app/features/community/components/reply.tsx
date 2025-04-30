@@ -53,8 +53,8 @@ export function Reply({ username, avatarUrl, content, timestamp, topLevel }: Rep
       {topLevel && (
         <div className="pl-20 w-full">
           <Reply
-            username="Nicolas"
-            avatarUrl="https://github.com/serranoarevalo.png"
+            username="Plusbeauxjours"
+            avatarUrl="https://github.com/plusbeauxjours.png"
             content="I've been using Todoist for a while now, and it's really great. It's simple, easy to use, and has a lot of features."
             timestamp="12 hours ago"
             topLevel={false}

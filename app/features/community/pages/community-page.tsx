@@ -91,7 +91,7 @@ export default function CommunityPage() {
                 key={`postId-${index}`}
                 id={`postId-${index}`}
                 title="What is the best productivity tool?"
-                author="Nico"
+                author="Plusbeauxjours"
                 authorAvatarUrl="https://github.com/apple.png"
                 category="Productivity"
                 postedAt="12 hours ago"
