@@ -42,7 +42,7 @@ export function Reply({ username, avatarUrl, content, timestamp, topLevel }: Rep
         <Form className="flex items-start gap-5 w-3/4">
           <Avatar className="size-14">
             <AvatarFallback>N</AvatarFallback>
-            <AvatarImage src="https://github.com/serranoarevalo.png" />
+            <AvatarImage src="https://github.com/plusbeauxjours.png" />
           </Avatar>
           <div className="flex flex-col gap-5 items-end w-full">
             <Textarea placeholder="Write a reply" className="w-full resize-none" rows={5} />

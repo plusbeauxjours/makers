@@ -13,8 +13,8 @@ export default function ProfilePostsPage({ params }: Route.ComponentProps) {
           key={`postId-${index}`}
           id={`postId-${index}`}
           title="What is the best productivity tool?"
-          author="Nico"
-          authorAvatarUrl="https://github.com/apple.png"
+          author="Plusbeauxjours"
+          authorAvatarUrl="https://github.com/pluto.png"
           category="Productivity"
           postedAt="12 hours ago"
           expanded

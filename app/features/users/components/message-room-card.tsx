@@ -9,7 +9,7 @@ interface MessageCardProps {
   lastMessage: string;
 }
 
-export function MessageCard({ id, avatarUrl, name, lastMessage }: MessageCardProps) {
+export default function MessageRoomCard({ id, avatarUrl, name, lastMessage }: MessageCardProps) {
   const location = useLocation();
   return (
     <SidebarMenuItem>

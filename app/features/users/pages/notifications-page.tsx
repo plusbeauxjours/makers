@@ -11,7 +11,7 @@ export default function NotificationsPage() {
       <h1 className="text-4xl font-bold">Notifications</h1>
       <div className="flex flex-col items-start gap-5">
         <NotificationCard
-          avatarUrl="https://github.com/serranoarevalo.png"
+          avatarUrl="https://github.com/plusbeauxjours.png"
           avatarFallback="S"
           userName="Steve Jobs"
           message=" followed you."
