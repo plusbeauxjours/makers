@@ -176,7 +176,7 @@ export default function Navigation({
                               (item.to === "/products/promote" || item.to === "/jobs/submit") &&
                                 "col-span-2 bg-primary/10 hover:bg-primary/20 focus:bg-primary/20",
                             ])}>
-                            <NavigationMenuLink>
+                            <NavigationMenuLink asChild>
                               <Link
                                 className="p-3 space-y-1 block leading-none no-underline outline-none"
                                 to={item.to}>
