@@ -5,8 +5,8 @@ import { PostCard } from "~/features/community/components/post-card";
 import { ProductCard } from "~/features/products/components/product-card";
 import { JobCard } from "~/features/jobs/components/job-card";
 import { TeamCard } from "~/features/teams/components/team-card";
-import type { Route } from "./+types/home-page";
 import type { MetaFunction } from "react-router";
+import type { Route } from "../../pages/+types/home-page";
 
 export function loader({ request }: Route.LoaderArgs) {
   return;

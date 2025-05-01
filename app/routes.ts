@@ -1,10 +1,10 @@
 import { type RouteConfig, index, layout, prefix, route } from "@react-router/dev/routes";
 
 export default [
-  index("routes/home-page.tsx"),
+  index("common/pages/home-page.tsx"),
   ...prefix("products", [
     index("features/products/pages/products-page.tsx"),
-    ...prefix("leaderboard", [
+    ...prefix("leaderboards", [
       index("features/products/pages/leaderboard-page.tsx"),
       route("/yearly/:year", "features/products/pages/leaderboard-yearly-page.tsx"),
       route("/monthly/:year/:month", "features/products/pages/leaderboard-monthly-page.tsx"),
@@ -61,10 +61,12 @@ export default [
     route("/create", "features/teams/pages/submit-team-page.tsx"),
   ]),
   ...prefix("/my", [
-    ...prefix("/dashboard", [
-      index("features/users/pages/dashboard-page.tsx"),
-      route("/ideas", "features/users/pages/dashboard-ideas-page.tsx"),
-      route("/products/:productId", "features/users/pages/dashboard-product-page.tsx"),
+    layout("features/users/layouts/dashboard-layout.tsx", [
+      ...prefix("/dashboard", [
+        index("features/users/pages/dashboard-page.tsx"),
+        route("/ideas", "features/users/pages/dashboard-ideas-page.tsx"),
+        route("/products/:productId", "features/users/pages/dashboard-product-page.tsx"),
+      ]),
     ]),
     layout("features/users/layouts/messages-layout.tsx", [
       ...prefix("/messages", [
