@@ -42,6 +42,7 @@ export default function ProductOverviewLayout() {
           Overview
         </NavLink>
         <NavLink
+          end
           className={({ isActive }) =>
             cn(buttonVariants({ variant: "outline" }), isActive && "bg-accent text-foreground ")
           }
