@@ -1,3 +1,3 @@
 export function UserAvatar() {
-  return <div>UserAvatar</div>;
+    return <div>UserAvatar</div>;
 }
