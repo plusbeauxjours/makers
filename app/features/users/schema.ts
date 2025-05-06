@@ -4,7 +4,7 @@ const users = pgSchema('auth').table('users', {
     id: uuid().primaryKey()
 });
 
-export const roles = pgEnum('role', ['developer', 'designer', 'marketer', 'founder', 'product-manager']);
+const roles = pgEnum('role', ['developer', 'designer', 'marketer', 'founder', 'product-manager']);
 
 export const profiles = pgTable('profiles', {
     profile_id: uuid()
