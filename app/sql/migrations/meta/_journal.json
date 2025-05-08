@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1746537488129,
-      "tag": "0000_normal_stick",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1746538653517,
-      "tag": "0001_aspiring_midnight",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1746714628381,
-      "tag": "0002_shallow_senator_kelly",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1746720923395,
-      "tag": "0003_oval_catseye",
+      "when": 1746723870001,
+      "tag": "0000_next_vindicator",
       "breakpoints": true
     }
   ]
