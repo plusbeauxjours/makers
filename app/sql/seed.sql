@@ -10,24 +10,24 @@ VALUES
 -- Seed products
 INSERT INTO products (name, tagline, description, how_it_works, icon, url, stats, profile_id, category_id, created_at, updated_at)
 VALUES
-  ('DevTool Pro', 'The ultimate developer toolkit', 'Comprehensive development suite', 'Easy integration with existing workflow', '/icons/devtool.png', 'https://devtool.pro', '{"views": 0, "reviews": 0}', '2a040d91-8acf-40d1-8c07-42471ea091cb', 1, NOW(), NOW()),
-  ('DesignMaster', 'Design like a pro', 'Professional design platform', 'Intuitive interface for designers', '/icons/design.png', 'https://designmaster.app', '{"views": 0, "reviews": 0}', '2a040d91-8acf-40d1-8c07-42471ea091cb', 2, NOW(), NOW()),
-  ('MarketGenius', 'Smart marketing automation', 'AI-powered marketing platform', 'Automated marketing workflows', '/icons/market.png', 'https://marketgenius.io', '{"views": 0, "reviews": 0}', '2a040d91-8acf-40d1-8c07-42471ea091cb', 3, NOW(), NOW()),
-  ('CodeBuddy', 'Your coding companion', 'AI pair programming assistant', 'Real-time code suggestions', '/icons/code.png', 'https://codebuddy.dev', '{"views": 0, "reviews": 0}', '2a040d91-8acf-40d1-8c07-42471ea091cb', 4, NOW(), NOW()),
-  ('DataViz', 'Beautiful data visualization', 'Turn data into insights', 'Drag-and-drop visualization builder', '/icons/dataviz.png', 'https://dataviz.app', '{"views": 0, "reviews": 0}', '2a040d91-8acf-40d1-8c07-42471ea091cb', 5, NOW(), NOW());
+  ('DevTool Pro', 'The ultimate developer toolkit', 'Comprehensive development suite', 'Easy integration with existing workflow', '/icons/devtool.png', 'https://devtool.pro', '{"views": 0, "reviews": 0}', 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 1, NOW(), NOW()),
+  ('DesignMaster', 'Design like a pro', 'Professional design platform', 'Intuitive interface for designers', '/icons/design.png', 'https://designmaster.app', '{"views": 0, "reviews": 0}', 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 2, NOW(), NOW()),
+  ('MarketGenius', 'Smart marketing automation', 'AI-powered marketing platform', 'Automated marketing workflows', '/icons/market.png', 'https://marketgenius.io', '{"views": 0, "reviews": 0}', 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 3, NOW(), NOW()),
+  ('CodeBuddy', 'Your coding companion', 'AI pair programming assistant', 'Real-time code suggestions', '/icons/code.png', 'https://codebuddy.dev', '{"views": 0, "reviews": 0}', 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 4, NOW(), NOW()),
+  ('DataViz', 'Beautiful data visualization', 'Turn data into insights', 'Drag-and-drop visualization builder', '/icons/dataviz.png', 'https://dataviz.app', '{"views": 0, "reviews": 0}', 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 5, NOW(), NOW());
 
 -- Seed product upvotes (bridge table)
 INSERT INTO product_upvotes (product_id, profile_id)
-VALUES (1, '2a040d91-8acf-40d1-8c07-42471ea091cb');
+VALUES (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358');
 
 -- Seed reviews
 INSERT INTO reviews (product_id, profile_id, rating, review, created_at, updated_at)
 VALUES
-  (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 5, 'Excellent developer tool!', NOW(), NOW()),
-  (2, '2a040d91-8acf-40d1-8c07-42471ea091cb', 4, 'Great design features', NOW(), NOW()),
-  (3, '2a040d91-8acf-40d1-8c07-42471ea091cb', 5, 'Amazing marketing automation', NOW(), NOW()),
-  (4, '2a040d91-8acf-40d1-8c07-42471ea091cb', 4, 'Very helpful coding assistant', NOW(), NOW()),
-  (5, '2a040d91-8acf-40d1-8c07-42471ea091cb', 5, 'Powerful visualization tool', NOW(), NOW());
+  (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 5, 'Excellent developer tool!', NOW(), NOW()),
+  (2, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 4, 'Great design features', NOW(), NOW()),
+  (3, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 5, 'Amazing marketing automation', NOW(), NOW()),
+  (4, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 4, 'Very helpful coding assistant', NOW(), NOW()),
+  (5, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 5, 'Powerful visualization tool', NOW(), NOW());
 
 -- Seed topics
 INSERT INTO topics (name, slug, created_at)
@@ -41,29 +41,29 @@ VALUES
 -- Seed posts
 INSERT INTO posts (title, content, topic_id, profile_id, created_at, updated_at)
 VALUES
-  ('Getting Started with DevTool Pro', 'A comprehensive guide to DevTool Pro...', 1, '2a040d91-8acf-40d1-8c07-42471ea091cb', NOW(), NOW()),
-  ('Design Tips and Tricks', 'Essential design principles...', 2, '2a040d91-8acf-40d1-8c07-42471ea091cb', NOW(), NOW()),
-  ('Marketing Automation Best Practices', 'How to automate your marketing...', 3, '2a040d91-8acf-40d1-8c07-42471ea091cb', NOW(), NOW()),
-  ('Launching Your First Product', 'Steps to a successful product launch...', 4, '2a040d91-8acf-40d1-8c07-42471ea091cb', NOW(), NOW()),
-  ('AI in Modern Development', 'How AI is changing development...', 5, '2a040d91-8acf-40d1-8c07-42471ea091cb', NOW(), NOW());
+  ('Getting Started with DevTool Pro', 'A comprehensive guide to DevTool Pro...', 1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NOW(), NOW()),
+  ('Design Tips and Tricks', 'Essential design principles...', 2, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NOW(), NOW()),
+  ('Marketing Automation Best Practices', 'How to automate your marketing...', 3, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NOW(), NOW()),
+  ('Launching Your First Product', 'Steps to a successful product launch...', 4, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NOW(), NOW()),
+  ('AI in Modern Development', 'How AI is changing development...', 5, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NOW(), NOW());
 
 -- Seed post upvotes (bridge table)
 INSERT INTO post_upvotes (post_id, profile_id)
-VALUES (1, '2a040d91-8acf-40d1-8c07-42471ea091cb');
+VALUES (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358');
 
 -- Seed post replies
 INSERT INTO post_replies (post_id, profile_id, reply, created_at, updated_at)
 VALUES
-  (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'Great post about DevTool Pro!', NOW(), NOW()),
-  (2, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'These design tips are very helpful', NOW(), NOW()),
-  (3, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'Marketing automation is crucial', NOW(), NOW()),
-  (4, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'Launch strategy is on point', NOW(), NOW()),
-  (5, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'AI is indeed transforming development', NOW(), NOW());
+  (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'Great post about DevTool Pro!', NOW(), NOW()),
+  (2, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'These design tips are very helpful', NOW(), NOW()),
+  (3, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'Marketing automation is crucial', NOW(), NOW()),
+  (4, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'Launch strategy is on point', NOW(), NOW()),
+  (5, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'AI is indeed transforming development', NOW(), NOW());
 
 -- Seed gpt ideas
 INSERT INTO gpt_ideas (idea, views, claimed_by, created_at)
 VALUES
-  ('AI-powered code review assistant', 0, '2a040d91-8acf-40d1-8c07-42471ea091cb', NOW()),
+  ('AI-powered code review assistant', 0, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NOW()),
   ('Design system generator', 0, NULL, NOW()),
   ('Marketing campaign optimizer', 0, NULL, NOW()),
   ('Developer productivity tracker', 0, NULL, NOW()),
@@ -71,7 +71,7 @@ VALUES
 
 -- Seed gpt ideas likes (bridge table)
 INSERT INTO gpt_ideas_likes (gpt_idea_id, profile_id)
-VALUES (1, '2a040d91-8acf-40d1-8c07-42471ea091cb');
+VALUES (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358');
 
 -- Seed team
 INSERT INTO team (product_name, team_size, equity_split, product_stage, roles, product_description, created_at, updated_at)
@@ -88,25 +88,25 @@ VALUES (NOW());
 
 -- Seed message room members (bridge table)
 INSERT INTO message_room_members (message_room_id, profile_id, created_at)
-VALUES (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', NOW());
+VALUES (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NOW());
 
 -- Seed messages
 INSERT INTO messages (message_room_id, sender_id, content, created_at)
 VALUES
-  (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'Hello! Interested in collaboration', NOW()),
-  (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'Let''s discuss the project details', NOW()),
-  (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'What''s your availability?', NOW()),
-  (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'I can start next week', NOW()),
-  (1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'Great, looking forward to working together', NOW());
+  (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'Hello! Interested in collaboration', NOW()),
+  (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'Let''s discuss the project details', NOW()),
+  (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'What''s your availability?', NOW()),
+  (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'I can start next week', NOW()),
+  (1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'Great, looking forward to working together', NOW());
 
 -- Seed notifications
 INSERT INTO notifications (source_id, product_id, post_id, target_id, type, created_at)
 VALUES
-  ('2a040d91-8acf-40d1-8c07-42471ea091cb', 1, NULL, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'review', NOW()),
-  ('2a040d91-8acf-40d1-8c07-42471ea091cb', NULL, 1, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'reply', NOW()),
-  ('2a040d91-8acf-40d1-8c07-42471ea091cb', NULL, NULL, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'follow', NOW()),
-  ('2a040d91-8acf-40d1-8c07-42471ea091cb', NULL, 2, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'mention', NOW()),
-  ('2a040d91-8acf-40d1-8c07-42471ea091cb', 2, NULL, '2a040d91-8acf-40d1-8c07-42471ea091cb', 'review', NOW());
+  ('a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 1, NULL, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'review', NOW()),
+  ('a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NULL, 1, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'reply', NOW()),
+  ('a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NULL, NULL, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'follow', NOW()),
+  ('a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', NULL, 2, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'mention', NOW()),
+  ('a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 2, NULL, 'a00f0e4b-e7e1-4375-a5d6-c47be7e2a358', 'review', NOW());
 
 
 
