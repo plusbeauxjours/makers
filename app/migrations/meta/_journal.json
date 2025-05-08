@@ -15,6 +15,13 @@
       "when": 1746538653517,
       "tag": "0001_aspiring_midnight",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1746714628381,
+      "tag": "0002_shallow_senator_kelly",
+      "breakpoints": true
     }
   ]
 }
