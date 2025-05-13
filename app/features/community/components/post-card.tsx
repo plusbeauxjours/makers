@@ -12,7 +12,7 @@ interface PostCardProps {
     author: string;
     authorAvatarUrl: string | null;
     category: string;
-    postedAt: Date;
+    postedAt: string;
     expanded?: boolean;
     votesCount?: number;
 }
@@ -35,7 +35,7 @@ export function PostCard({
                     expanded ? 'flex flex-row items-center justify-between' : ''
                 )}
             >
-                <CardHeader className="flex flex-row items-center gap-2">
+                <CardHeader className="flex w-full flex-row items-center gap-2">
                     <Avatar className="size-14">
                         <AvatarFallback>{author[0]}</AvatarFallback>
                         {authorAvatarUrl && <AvatarImage src={authorAvatarUrl} />}
@@ -47,7 +47,7 @@ export function PostCard({
                                 {author} on {category}
                             </span>
                             <DotIcon className="h-4 w-4" />
-                            <span>{DateTime.fromJSDate(postedAt).toRelative()}</span>
+                            <span>{DateTime.fromISO(postedAt).toRelative()}</span>
                         </div>
                     </div>
                 </CardHeader>

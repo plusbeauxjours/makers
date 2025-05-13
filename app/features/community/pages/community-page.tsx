@@ -12,7 +12,7 @@ import { ChevronDownIcon } from 'lucide-react';
 import { PERIOD_OPTIONS, SORT_OPTIONS } from '../constants';
 import { Input } from '~/common/components/ui/input';
 import { PostCard } from '../components/post-card';
-import { getPosts, getTopics } from '../queries';
+import { getPosts, getTopics } from '../queries_supabase';
 
 export const meta: Route.MetaFunction = () => {
     return [{ title: 'Community | wemake' }];
@@ -94,14 +94,14 @@ export default function CommunityPage({ loaderData }: Route.ComponentProps) {
                     <div className="space-y-5">
                         {loaderData.posts.map((post) => (
                             <PostCard
-                                key={post.id}
-                                id={post.id}
+                                key={post.post_id}
+                                id={post.post_id}
                                 title={post.title}
-                                author={post.author}
-                                authorAvatarUrl={post.authorAvatarUrl}
-                                category={post.topic}
-                                postedAt={post.createdAt}
-                                votesCount={post.upvotes}
+                                author={post.author.name}
+                                authorAvatarUrl={post.author.avatar}
+                                category={post.topic.name}
+                                postedAt={post.created_at}
+                                votesCount={post.upvotes[0].count}
                                 expanded
                             />
                         ))}
