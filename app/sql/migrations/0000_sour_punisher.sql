@@ -24,6 +24,7 @@ CREATE TABLE "posts" (
 	"post_id" bigint PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "posts_post_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START WITH 1 CACHE 1),
 	"title" text NOT NULL,
 	"content" text NOT NULL,
+	"upvotes" bigint DEFAULT 0,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	"topic_id" bigint,
@@ -174,6 +175,10 @@ CREATE TABLE "profiles" (
 	"views" jsonb,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE "auth"."users" (
+	"id" uuid PRIMARY KEY NOT NULL
 );
 --> statement-breakpoint
 ALTER TABLE "post_replies" ADD CONSTRAINT "post_replies_post_id_posts_post_id_fk" FOREIGN KEY ("post_id") REFERENCES "public"."posts"("post_id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
