@@ -1,6 +1,6 @@
 import Hero from '~/common/components/hero';
 import type { Route } from './+types/community-page';
-import { Form, Link, useSearchParams } from 'react-router';
+import { Await, Form, Link, useSearchParams } from 'react-router';
 import { Button } from '~/common/components/ui/button';
 import {
     DropdownMenu,
@@ -13,19 +13,22 @@ import { PERIOD_OPTIONS, SORT_OPTIONS } from '../constants';
 import { Input } from '~/common/components/ui/input';
 import { PostCard } from '../components/post-card';
 import { getPosts, getTopics } from '../queries_supabase';
-
+import { Suspense } from 'react';
 export const meta: Route.MetaFunction = () => {
     return [{ title: 'Community | wemake' }];
 };
 
 export const loader = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-    const topics = await getTopics();
-    const posts = await getPosts();
+    // const topics = await getTopics();
+    // const posts = await getPosts();
+    // const [topics, posts] = await Promise.all([getTopics(), getPosts()]);
+    const topics = getTopics();
+    const posts = getPosts();
     return { topics, posts };
 };
 
 export default function CommunityPage({ loaderData }: Route.ComponentProps) {
+    const { topics, posts } = loaderData;
     const [searchParams, setSearchParams] = useSearchParams();
     const sorting = searchParams.get('sorting') || 'newest';
     const period = searchParams.get('period') || 'all';
@@ -92,31 +95,43 @@ export default function CommunityPage({ loaderData }: Route.ComponentProps) {
                             <Link to={`/community/submit`}>Create Discussion</Link>
                         </Button>
                     </div>
-                    <div className="space-y-5">
-                        {loaderData.posts.map((post) => (
-                            <PostCard
-                                key={post.post_id}
-                                id={post.post_id}
-                                title={post.title}
-                                author={post.author_username}
-                                authorAvatarUrl={post.author_avatar}
-                                category={post.topic}
-                                postedAt={post.created_at}
-                                votesCount={post.upvote_count}
-                                expanded
-                            />
-                        ))}
-                    </div>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Await resolve={posts}>
+                            {(data) => (
+                                <div className="space-y-5">
+                                    {data.map((post) => (
+                                        <PostCard
+                                            key={post.post_id}
+                                            id={post.post_id}
+                                            title={post.title}
+                                            author={post.author}
+                                            authorAvatarUrl={post.author_avatar}
+                                            category={post.topic}
+                                            postedAt={post.created_at}
+                                            votesCount={post.upvotes}
+                                            expanded
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </Await>
+                    </Suspense>
                 </div>
                 <aside className="col-span-2 space-y-5">
                     <span className="text-muted-foreground text-sm font-bold uppercase">Topics</span>
-                    <div className="flex flex-col items-start gap-2">
-                        {loaderData.topics.map((topic) => (
-                            <Button asChild variant={'link'} key={topic.slug} className="pl-0">
-                                <Link to={`/community?topic=${topic.slug}`}>{topic.name}</Link>
-                            </Button>
-                        ))}
-                    </div>
+                    <Suspense fallback={<div>Loading topics...</div>}>
+                        <Await resolve={topics}>
+                            {(topicsData) => (
+                                <div className="flex flex-col items-start gap-2">
+                                    {topicsData.map((topic) => (
+                                        <Button asChild variant={'link'} key={topic.slug} className="pl-0">
+                                            <Link to={`/community?topic=${topic.slug}`}>{topic.name}</Link>
+                                        </Button>
+                                    ))}
+                                </div>
+                            )}
+                        </Await>
+                    </Suspense>
                 </aside>
             </div>
         </div>

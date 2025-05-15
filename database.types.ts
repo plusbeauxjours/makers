@@ -308,13 +308,6 @@ export type Database = {
             foreignKeyName: "notifications_post_id_posts_post_id_fk"
             columns: ["post_id"]
             isOneToOne: false
-            referencedRelation: "community_post_list_view"
-            referencedColumns: ["post_id"]
-          },
-          {
-            foreignKeyName: "notifications_post_id_posts_post_id_fk"
-            columns: ["post_id"]
-            isOneToOne: false
             referencedRelation: "posts"
             referencedColumns: ["post_id"]
           },
@@ -381,55 +374,11 @@ export type Database = {
             foreignKeyName: "post_replies_post_id_posts_post_id_fk"
             columns: ["post_id"]
             isOneToOne: false
-            referencedRelation: "community_post_list_view"
-            referencedColumns: ["post_id"]
-          },
-          {
-            foreignKeyName: "post_replies_post_id_posts_post_id_fk"
-            columns: ["post_id"]
-            isOneToOne: false
             referencedRelation: "posts"
             referencedColumns: ["post_id"]
           },
           {
             foreignKeyName: "post_replies_profile_id_profiles_profile_id_fk"
-            columns: ["profile_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["profile_id"]
-          },
-        ]
-      }
-      post_upvotes: {
-        Row: {
-          post_id: number
-          profile_id: string
-        }
-        Insert: {
-          post_id: number
-          profile_id: string
-        }
-        Update: {
-          post_id?: number
-          profile_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "post_upvotes_post_id_posts_post_id_fk"
-            columns: ["post_id"]
-            isOneToOne: false
-            referencedRelation: "community_post_list_view"
-            referencedColumns: ["post_id"]
-          },
-          {
-            foreignKeyName: "post_upvotes_post_id_posts_post_id_fk"
-            columns: ["post_id"]
-            isOneToOne: false
-            referencedRelation: "posts"
-            referencedColumns: ["post_id"]
-          },
-          {
-            foreignKeyName: "post_upvotes_profile_id_profiles_profile_id_fk"
             columns: ["profile_id"]
             isOneToOne: false
             referencedRelation: "profiles"
@@ -446,6 +395,7 @@ export type Database = {
           title: string
           topic_id: number | null
           updated_at: string
+          upvotes: number | null
         }
         Insert: {
           content: string
@@ -455,6 +405,7 @@ export type Database = {
           title: string
           topic_id?: number | null
           updated_at?: string
+          upvotes?: number | null
         }
         Update: {
           content?: string
@@ -464,6 +415,7 @@ export type Database = {
           title?: string
           topic_id?: number | null
           updated_at?: string
+          upvotes?: number | null
         }
         Relationships: [
           {
@@ -718,19 +670,7 @@ export type Database = {
       }
     }
     Views: {
-      community_post_list_view: {
-        Row: {
-          author: string | null
-          author_avatar: string | null
-          author_username: string | null
-          created_at: string | null
-          post_id: number | null
-          title: string | null
-          topic: string | null
-          upvote_count: number | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       [_ in never]: never
