@@ -1,47 +1,47 @@
-import { Link } from 'react-router';
-import { Button } from '~/common/components/ui/button';
-import { IdeaCard } from '~/features/ideas/components/idea-card';
-import { PostCard } from '~/features/community/components/post-card';
+import { Link, type MetaFunction } from 'react-router';
 import { ProductCard } from '~/features/products/components/product-card';
+import { Button } from '../components/ui/button';
+import { PostCard } from '~/features/community/components/post-card';
+import { IdeaCard } from '~/features/ideas/components/idea-card';
 import { JobCard } from '~/features/jobs/components/job-card';
 import { TeamCard } from '~/features/teams/components/team-card';
-import type { MetaFunction } from 'react-router';
+import { getProductsByDateRange } from '~/features/products/queries';
+import { DateTime } from 'luxon';
 import type { Route } from './+types/home-page';
-
-export function loader({ request }: Route.LoaderArgs) {
-    return;
-}
-
-export function action({ request }: Route.ActionArgs) {
-    return {};
-}
 
 export const meta: MetaFunction = () => {
     return [{ title: 'Home | wemake' }, { name: 'description', content: 'Welcome to wemake' }];
 };
 
-export default function HomePage({ loaderData }: Route.ComponentProps) {
-    console.log(loaderData);
+export const loader = async () => {
+    const products = await getProductsByDateRange({
+        startDate: DateTime.now().startOf('day'),
+        endDate: DateTime.now().endOf('day'),
+        limit: 7
+    });
+    return { products };
+};
 
+export default function HomePage({ loaderData }: Route.ComponentProps) {
     return (
-        <div className="space-y-40 px-20">
+        <div className="space-y-40">
             <div className="grid grid-cols-3 gap-4">
                 <div>
                     <h2 className="text-5xl leading-tight font-bold tracking-tight">Today's Products</h2>
                     <p className="text-foreground text-xl font-light">The best products made by our community today.</p>
                     <Button variant="link" asChild className="p-0 text-lg">
-                        <Link to="/products/leaderboard">Explore all products &rarr;</Link>
+                        <Link to="/products/leaderboards">Explore all products &rarr;</Link>
                     </Button>
                 </div>
-                {Array.from({ length: 11 }).map((_, index) => (
+                {loaderData.products.map((product: any) => (
                     <ProductCard
-                        key={`productId-${index}`}
-                        id={`productId-${index}`}
-                        name="Product Name"
-                        description="Product Description"
-                        commentsCount={12}
-                        viewsCount={12}
-                        votesCount={120}
+                        key={product.product_id}
+                        id={product.product_id.toString()}
+                        name={product.name}
+                        description={product.description}
+                        reviewsCount={product.reviews}
+                        viewsCount={product.views}
+                        votesCount={product.upvotes}
                     />
                 ))}
             </div>
@@ -56,7 +56,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
                 {Array.from({ length: 11 }).map((_, index) => (
                     <PostCard
                         key={`postId-${index}`}
-                        id={`postId-${index}`}
+                        id={index}
                         title="What is the best productivity tool?"
                         author="Apple"
                         authorAvatarUrl="https://github.com/apple.png"
@@ -113,7 +113,9 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
                     <h2 className="text-5xl leading-tight font-bold tracking-tight">Find a team mate</h2>
                     <p className="text-foreground text-xl font-light">Join a team looking for a new member.</p>
                     <Button variant="link" asChild className="p-0 text-lg">
-                        <Link to="/teams">Explore all teams &rarr;</Link>
+                        <Link prefetch="viewport" to="/teams">
+                            Explore all teams &rarr;
+                        </Link>
                     </Button>
                 </div>
                 {Array.from({ length: 7 }).map((_, index) => (
