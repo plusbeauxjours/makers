@@ -3,9 +3,10 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '~/common/c
 import { Button } from '~/common/components/ui/button';
 import { DotIcon, EyeIcon, HeartIcon, LockIcon } from 'lucide-react';
 import { cn } from '~/lib/utils';
+import { DateTime } from 'luxon';
 
 interface IdeaCardProps {
-    id: string;
+    id: number;
     title: string;
     viewsCount: number;
     postedAt: string;
@@ -35,7 +36,7 @@ export function IdeaCard({ id, title, viewsCount, postedAt, likesCount, claimed 
                     <span>{viewsCount}</span>
                 </div>
                 <DotIcon className="h-4 w-4" />
-                <span>{postedAt}</span>
+                <span>{DateTime.fromISO(postedAt).toRelative()}</span>
             </CardContent>
             <CardFooter className="flex justify-end gap-2">
                 <Button variant="outline">
