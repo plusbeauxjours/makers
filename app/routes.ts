@@ -15,6 +15,10 @@ export default [
             ])
         ])
     ]),
+    ...prefix('categories', [
+        index('features/products/pages/categories-page.tsx'),
+        route('/:category', 'features/products/pages/category-page.tsx')
+    ]),
     ...prefix('/ideas', [
         index('features/ideas/pages/ideas-page.tsx'),
         route('/:ideaId', 'features/ideas/pages/idea-page.tsx')

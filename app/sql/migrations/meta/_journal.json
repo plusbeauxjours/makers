@@ -15,6 +15,13 @@
       "when": 1747477057244,
       "tag": "0001_nervous_silk_fever",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1748300468171,
+      "tag": "0002_parched_swordsman",
+      "breakpoints": true
     }
   ]
 }
