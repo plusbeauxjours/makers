@@ -13,12 +13,23 @@ export default [
                 route('/weekly/:year/:week', 'features/products/pages/leaderboard-weekly-page.tsx'),
                 route('/:period', 'features/products/pages/leaderboard-redirect-page.tsx')
             ])
+        ]),
+        ...prefix('categories', [
+            index('features/products/pages/categories-page.tsx'),
+            route('/:category', 'features/products/pages/category-page.tsx')
+        ]),
+        route('/search', 'features/products/pages/search-page.tsx'),
+        route('/submit', 'features/products/pages/submit-product-page.tsx'),
+        route('/promote', 'features/products/pages/promote-page.tsx'),
+        ...prefix('/:productId', [
+            index('features/products/pages/product-redirect-page.tsx'),
+            layout('features/products/layouts/product-overview-layout.tsx', [
+                route('/overview', 'features/products/pages/product-overview-page.tsx'),
+                ...prefix('/reviews', [index('features/products/pages/product-reviews-page.tsx')])
+            ])
         ])
     ]),
-    ...prefix('categories', [
-        index('features/products/pages/categories-page.tsx'),
-        route('/:category', 'features/products/pages/category-page.tsx')
-    ]),
+
     ...prefix('/ideas', [
         index('features/ideas/pages/ideas-page.tsx'),
         route('/:ideaId', 'features/ideas/pages/idea-page.tsx')
